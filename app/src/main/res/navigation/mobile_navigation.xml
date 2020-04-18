@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_beranda">
+
+    <fragment
+        android:id="@+id/navigation_beranda"
+        android:name="com.example.terapanimvo.ui.beranda.BerandaFragment"
+        android:label="@string/title_beranda"
+        tools:layout="@layout/beranda_fragment" />
+
+    <fragment
+        android:id="@+id/navigation_magang"
+        android:name="com.example.terapanimvo.ui.magang.MagangFragment"
+        android:label="@string/title_magang"
+        tools:layout="@layout/magang_fragment" />
+
+    <fragment
+        android:id="@+id/navigation_berita"
+        android:name="com.example.terapanimvo.ui.berita.BeritaFragment"
+        android:label="@string/title_berita"
+        tools:layout="@layout/berita_fragment" />
+</navigation>

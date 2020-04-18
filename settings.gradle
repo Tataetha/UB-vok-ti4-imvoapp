@@ -1,0 +1,2 @@
+rootProject.name='TerapanIMVO'
+include ':app'

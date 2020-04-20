@@ -68,7 +68,7 @@ class BeritaFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 //        viewModel = ViewModelProviders.of(this).get(BeritaViewModel::class.java)
 //         TODO: Use the ViewModel
-        Log.e("DAPAT", "Hai, ini BeritaFrag ActCreated")
+//        Log.e("DAPAT", "Hai, ini BeritaFrag ActCreated")
     }
 
     private fun partItemClicked(beritaItem: BeritaModel) {

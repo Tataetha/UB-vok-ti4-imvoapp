@@ -1,5 +1,6 @@
 package com.example.terapanimvo
 
+import android.graphics.Color
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +9,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 
-val ip = "https://cafeinlaravel.000webhostapp.com"
+val ip = "http://192.168.1.7"
 
 class MainActivity : AppCompatActivity() {
 

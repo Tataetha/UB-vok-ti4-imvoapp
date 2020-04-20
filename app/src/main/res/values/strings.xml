@@ -4,5 +4,6 @@
     <string name="title_magang">Magang</string>
     <string name="title_perusahaan">Perusahaan</string>
     <string name="title_jurusan">Jurusan</string>
+    <string name="title_djurusan">Detail Jurusan</string>
     <string name="title_berita">Berita</string>
 </resources>

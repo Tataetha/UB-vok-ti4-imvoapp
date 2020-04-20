@@ -10,14 +10,16 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.terapanimvo.R
 import com.example.terapanimvo.model.JurusanModel
+import com.example.terapanimvo.model.Perusahaan
+import com.example.terapanimvo.model.PerusahaanModel
 import com.squareup.picasso.Picasso
 import java.util.*
 import kotlin.collections.ArrayList
 
 class JurusanAdapter(
     private var itemsCells: MutableList<JurusanModel>,
-//    private var itemsCellsFiltered: ArrayList<JurusanModel>,
-    private var clickListener: (JurusanModel) -> Unit) :
+    private var clickListener: (JurusanModel) -> Unit
+) :
     RecyclerView.Adapter<JurusanAdapter.ViewHolder>() {
 
     //fun menampilkan data ke tampilan
@@ -36,62 +38,31 @@ class JurusanAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val itemData = itemsCells[position]
         holder.bind(itemData, clickListener)
+        holder.textViewId.text = itemData.jurusan_id.toString()
         holder.textViewName.text = itemData.jurusan_nama
-//        holder.textViewId.text = berita.beritaId.toString()
-//        holder.textViewPrice.text = berita.product_price
-//        val image = berita.product_image
-//        Picasso.get().load("$ip/images/$image").into(holder.imageViewBerita)
+        holder.arrayPerusahaanModel = itemData.perusahaan
     }
 
     //insialisasi untuk list yang akan dibuat menggunakan RecylerView
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        lateinit var textViewId: TextView
         lateinit var textViewName: TextView
+        lateinit var arrayPerusahaanModel: MutableList<Perusahaan>
 
         init {
-            textViewName = itemView.findViewById(R.id.textViewTitleJurusan) as TextView
+            textViewId = itemView.findViewById(R.id.textViewJurusanId) as TextView
+            textViewName = itemView.findViewById(R.id.textViewJurusanNama) as TextView
+//            arrayPerusahaanModel = itemView.findViewById(R.id.)
             //fun untuk memanggil data ketika item diklik
-            }
+        }
+
         fun bind(part: JurusanModel, clickListener: (JurusanModel) -> Unit) {
             itemView.setOnClickListener { clickListener(part) }
         }
     }
 
-    fun updateList(list: MutableList<JurusanModel>){
+    fun updateList(list: MutableList<JurusanModel>) {
         itemsCells = list
         notifyDataSetChanged()
     }
-
-//    override fun getFilter(): Filter {
-//        return object :Filter(){
-//            override fun performFiltering(charSequence: CharSequence?): FilterResults {
-//                val charString = charSequence.toString()
-//                if (charString.isEmpty()) {
-//                    itemsCellsFiltered = itemsCells
-//                } else {
-//                    val filteredList: ArrayList<JurusanModel> =
-//                        java.util.ArrayList<JurusanModel>()
-//                    for (row in itemsCells) {
-//
-//                        // name match condition. this might differ depending on your requirement
-//                        // here we are looking for name or phone number match
-//                        if (row.jurusan_nama.toLowerCase(Locale.ROOT)
-//                                .contains(charString.toLowerCase(Locale.ROOT))
-////                            || row.getPhone().contains(charSequence)
-//                        ) {
-//                            filteredList.add(row)
-//                        }
-//                    }
-//                    itemsCellsFiltered = filteredList
-//                }
-//                val filterResults = FilterResults()
-//                filterResults.values = itemsCellsFiltered
-//                return filterResults
-//            }
-//
-//            override fun publishResults(charSequence: CharSequence?, filterResults: FilterResults?) {
-//                itemsCellsFiltered = filterResults?.values as ArrayList<JurusanModel>
-//                notifyDataSetChanged()
-//            }
-//        }
-//    }
 }

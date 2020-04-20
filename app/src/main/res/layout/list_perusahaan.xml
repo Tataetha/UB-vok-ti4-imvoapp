@@ -10,13 +10,14 @@
         android:layout_margin="4dp">
 
         <LinearLayout
+            android:id="@+id/cardPerusahaan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imageViewBerita"
-                android:layout_width="match_parent"
+                android:id="@+id/imageViewPerusahaanLogo"
+                android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/img_activity" />
@@ -28,18 +29,27 @@
                 android:padding="10dp">
 
                 <TextView
-                    android:id="@+id/textViewJudul"
+                    android:id="@+id/textViewPerusahaanNama"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Rachmad Andri"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                    android:text="Semua Perusahaan"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/colorText" />
 
                 <TextView
-                    android:id="@+id/textViewUrl"
+                    android:id="@+id/textViewPerusahaanAlamat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Blitar Indonesia"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                    android:text="Pilih tempat magang berdasarkan perusahaan terbaru"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="@color/colorText" />
+
+                <TextView
+                    android:id="@+id/textViewPerusahaanId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:visibility="gone" />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

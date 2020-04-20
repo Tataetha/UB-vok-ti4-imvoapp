@@ -19,8 +19,6 @@ class MagangFragment : Fragment() {
         fun newInstance() = MagangFragment()
     }
 
-    private lateinit var viewModel: MagangViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,8 +37,6 @@ class MagangFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//        viewModel = ViewModelProviders.of(this).get(MagangViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }

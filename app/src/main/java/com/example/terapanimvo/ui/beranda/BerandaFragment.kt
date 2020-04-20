@@ -14,8 +14,6 @@ class BerandaFragment : Fragment() {
         fun newInstance() = BerandaFragment()
     }
 
-    private lateinit var viewModel: BerandaViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,8 +23,6 @@ class BerandaFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(BerandaViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }

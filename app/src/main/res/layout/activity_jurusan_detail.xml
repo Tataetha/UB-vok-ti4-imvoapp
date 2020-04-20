@@ -4,17 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".JurusanActivity">
+    tools:context=".JurusanDetailActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/actBarJurusan"
+        android:id="@+id/actBarJurusanDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarJurusan"
+            android:id="@+id/toolbarJurusanDetail"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
@@ -22,11 +21,30 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewJurusan"
+    <LinearLayout
+        android:layout_below="@id/actBarJurusanDetail"
+        android:id="@+id/layoutJurusanDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/actBarJurusan"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/colorAccent"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/textViewJurusanDetailNama"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nama Jurusan"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewJurusanDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutJurusanDetail"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
         android:layout_marginTop="1dp"
@@ -34,25 +52,20 @@
         android:layout_marginRight="1dp"
         android:layout_marginBottom="1dp"
         android:paddingHorizontal="8dp"
-        android:paddingVertical="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:paddingVertical="4dp" />
 
     <ProgressBar
-        android:id="@+id/progressJurusan"
+        android:id="@+id/progress_circularJurusanDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
 
     <ImageButton
-        android:id="@+id/imageButtonJurusan"
+        android:id="@+id/imageButtonJurusanDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:background="@drawable/bg_button_refresh"
         app:srcCompat="@drawable/ic_refresh_black_24dp" />
-
 
 </RelativeLayout>

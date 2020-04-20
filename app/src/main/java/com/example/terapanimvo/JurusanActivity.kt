@@ -7,22 +7,16 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.View
+import android.widget.ImageButton
 import android.widget.ProgressBar
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.androidnetworking.AndroidNetworking
-import com.androidnetworking.common.Priority
-import com.androidnetworking.error.ANError
-import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.example.terapanimvo.helper.ApiClient
 import com.example.terapanimvo.helper.JurusanAdapter
 import com.example.terapanimvo.model.JurusanModel
-import org.json.JSONArray
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Response
 import java.util.*
@@ -30,12 +24,8 @@ import kotlin.collections.ArrayList
 
 class JurusanActivity : AppCompatActivity() {
 
-//    val jurusan = ArrayList<JurusanModel>()
-//    val adapter = JurusanAdapter(jurusan, jurusan) { jurusanItem: JurusanModel ->
-//        partItemClicked(jurusanItem)
-//    }
-
     lateinit var progressBar: ProgressBar
+    lateinit var refreshButton: ImageButton
     lateinit var toolbar: Toolbar
     lateinit var recyclerView: RecyclerView
 
@@ -46,8 +36,11 @@ class JurusanActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_jurusan)
 
-        progressBar = findViewById(R.id.progress_circularJurusan)
-        toolbar = findViewById(R.id.toolbar)
+        progressBar = findViewById(R.id.progressJurusan)
+        refreshButton = findViewById(R.id.imageButtonJurusan)
+        refreshButton.visibility = View.GONE
+
+        toolbar = findViewById(R.id.toolbarJurusan)
         setSupportActionBar(toolbar)
         toolbar.navigationIcon = resources.getDrawable(R.drawable.ic_arrow_back_black_24dp)
         toolbar.setNavigationOnClickListener {
@@ -71,19 +64,12 @@ class JurusanActivity : AppCompatActivity() {
         searchView.setSearchableInfo(manager.getSearchableInfo(componentName))
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(query: String?): Boolean {
-//                adapter.getFilter().filter(query)
-//                Toast.makeText(this@JurusanActivity,"Hai, $query",Toast.LENGTH_SHORT).show()
                 Log.e("INPUT", query.toString())
                 filterList(query.toString())
                 return false
             }
 
             override fun onQueryTextSubmit(query: String?): Boolean {
-//                searchView.clearFocus()
-//                searchView.setQuery("",false)
-//                searchView.onActionViewCollapsed()
-//                Toast.makeText(this@JurusanActivity,"Hai, $query",Toast.LENGTH_SHORT).show()
-//                adapter.getFilter().filter(query)
                 filterList(query.toString())
                 return true
             }
@@ -128,11 +114,17 @@ class JurusanActivity : AppCompatActivity() {
 //                    Log.i("_err", anError.toString())
 //                }
 //            })
+
         var apiCall = ApiClient.create().getJurusan()
         apiCall.enqueue(object : retrofit2.Callback<MutableList<JurusanModel>> {
             override fun onFailure(call: Call<MutableList<JurusanModel>>, t: Throwable) {
                 Log.e("ERROR", "${t.message}")
                 progressBar.visibility = View.GONE
+                refreshButton.visibility = View.VISIBLE
+                refreshButton.setOnClickListener {
+                    getData()
+                    refreshButton.visibility = View.GONE
+                }
             }
 
             override fun onResponse(
@@ -142,7 +134,7 @@ class JurusanActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     progressBar.visibility = View.GONE
                     itemList = response.body()!!
-                    Log.e("OUTPUT", "$itemList")
+//                    Log.e("OUTPUT", "$itemList")
 
                     adapter = JurusanAdapter(itemList) { jurusanItem: JurusanModel ->
                         partItemClicked(jurusanItem)
@@ -156,6 +148,9 @@ class JurusanActivity : AppCompatActivity() {
     }
 
     private fun partItemClicked(jurusanItem: JurusanModel) {
-
+        val intent = Intent(this, JurusanDetailActivity::class.java)
+        intent.putExtra("jurusan_id", jurusanItem.jurusan_id.toString())
+        intent.putExtra("jurusan_nama", jurusanItem.jurusan_nama)
+        startActivity(intent)
     }
 }

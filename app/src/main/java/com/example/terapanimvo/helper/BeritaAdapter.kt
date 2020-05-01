@@ -18,8 +18,8 @@ class BeritaAdapter (
 
     //insialisasi untuk list yang akan dibuat menggunakan RecylerView
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val textViewName = itemView.findViewById(R.id.textViewJudul) as TextView
-        val textViewPrice = itemView.findViewById(R.id.textViewUrl) as TextView
+        val textViewJudul = itemView.findViewById(R.id.textViewJudul) as TextView
+        val textViewLink = itemView.findViewById(R.id.textViewUrl) as TextView
         val imageViewBerita = itemView.findViewById(R.id.imageViewBerita) as ImageView
 
 //        val textViewEmail = itemView.findViewById(R.id.textViewEmail) as TextView
@@ -47,9 +47,9 @@ class BeritaAdapter (
         holder.bind(itemsCells[position], clickListener)
         val berita: BeritaModel = itemsCells[position]
 //        holder.textViewId.text = berita.beritaId.toString()
-        holder.textViewName.text = berita.product_name
-        holder.textViewPrice.text = berita.product_price
-        val image = berita.product_image
-        Picasso.get().load("$ip/images/$image").into(holder.imageViewBerita)
+        holder.textViewJudul.text = berita.berita_judul
+        holder.textViewLink.text = berita.berita_link
+        val image = berita.berita_gambar
+        Picasso.get().load("$ip/images/berita/$image").into(holder.imageViewBerita)
     }
 }

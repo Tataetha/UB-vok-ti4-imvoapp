@@ -5,7 +5,7 @@
     android:id="@+id/beranda"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.beranda.BerandaFragment">
+    tools:context=".ui.BerandaFragment">
 
     <TextView
         android:id="@+id/message"

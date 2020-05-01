@@ -1,9 +1,7 @@
-package com.example.terapanimvo.ui.magang
+package com.example.terapanimvo.ui
 
 import android.content.Intent
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.text.Layout
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +9,6 @@ import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import com.example.terapanimvo.JurusanActivity
 import com.example.terapanimvo.R
-import kotlinx.android.synthetic.main.magang_fragment.*
 
 class MagangFragment : Fragment() {
 

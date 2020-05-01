@@ -5,7 +5,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
-    var BASE_URL = "http://192.168.1.7"
+    var BASE_URL = "https://imvoadmin.000webhostapp.com"
 
     fun create(): ApiService {
         val retrofit = Retrofit.Builder()

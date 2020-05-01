@@ -1,6 +1,5 @@
-package com.example.terapanimvo.ui.beranda
+package com.example.terapanimvo.ui
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater

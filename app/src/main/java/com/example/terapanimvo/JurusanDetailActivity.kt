@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageButton
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -25,6 +26,7 @@ import kotlin.collections.ArrayList
 class JurusanDetailActivity : AppCompatActivity() {
 
     lateinit var progressBar: ProgressBar
+    lateinit var refreshButton: ImageButton
     lateinit var toolbar: Toolbar
     lateinit var recyclerView: RecyclerView
     lateinit var textViewDetailJurusan: TextView
@@ -45,6 +47,8 @@ class JurusanDetailActivity : AppCompatActivity() {
         textViewDetailJurusan.text = jurusan_nama
 
         progressBar = findViewById(R.id.progress_circularJurusanDetail)
+        refreshButton = findViewById(R.id.imageButtonJurusanDetail)
+        refreshButton.visibility = View.GONE
         toolbar = findViewById(R.id.toolbarJurusanDetail)
         setSupportActionBar(toolbar)
         toolbar.navigationIcon = resources.getDrawable(R.drawable.ic_arrow_back_black_24dp)
@@ -98,6 +102,11 @@ class JurusanDetailActivity : AppCompatActivity() {
                 override fun onError(anError: ANError?) {
                     progressBar.visibility = View.GONE
                     Log.i("_err", anError.toString())
+                    refreshButton.visibility = View.VISIBLE
+                    refreshButton.setOnClickListener {
+                        getData()
+                        refreshButton.visibility = View.GONE
+                    }
                 }
             })
     }

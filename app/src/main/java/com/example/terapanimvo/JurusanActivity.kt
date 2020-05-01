@@ -90,31 +90,6 @@ class JurusanActivity : AppCompatActivity() {
 
     private fun getData() {
         progressBar.visibility = View.VISIBLE
-//        AndroidNetworking.get("$ip/jurusan")
-//            .setPriority(Priority.MEDIUM).build().getAsJSONObject(object :
-//                JSONObjectRequestListener {
-//                override fun onResponse(response: JSONObject) {
-//                    Log.e("kotlinResponse", response.toString())
-//                    val jsonArray: JSONArray = response.getJSONArray("result")
-//                    for (i in 0 until jsonArray.length()) {
-//                        val jsonObject: JSONObject = jsonArray.getJSONObject(i)
-////                        Log.e("DAPAT", jsonObject.optString("id_jurusan"))
-//                        var isi1 = jsonObject.optString("jurusan_nama").toString()
-//
-//                        itemList.add(JurusanModel("$isi1"))
-//                    }
-//                    adapter = JurusanAdapter(itemList) { jurusanItem: JurusanModel ->
-//                        partItemClicked(jurusanItem)
-//                    }
-//                    progressBar.visibility = View.GONE
-//                    recyclerView.adapter = adapter
-//                }
-//
-//                override fun onError(anError: ANError?) {
-//                    Log.i("_err", anError.toString())
-//                }
-//            })
-
         var apiCall = ApiClient.create().getJurusan()
         apiCall.enqueue(object : retrofit2.Callback<MutableList<JurusanModel>> {
             override fun onFailure(call: Call<MutableList<JurusanModel>>, t: Throwable) {

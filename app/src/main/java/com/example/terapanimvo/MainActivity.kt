@@ -9,7 +9,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 
-val ip = "http://192.168.1.7"
+val ip = "https://imvoadmin.000webhostapp.com"
 
 class MainActivity : AppCompatActivity() {
 

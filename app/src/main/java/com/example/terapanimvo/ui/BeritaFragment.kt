@@ -1,5 +1,7 @@
 package com.example.terapanimvo.ui
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -36,7 +38,6 @@ class BeritaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//        return inflater.inflate(R.layout.berita_fragment, container, false)
         val view = inflater!!.inflate(R.layout.berita_fragment, container, false)
         val recyclerView = view.findViewById(R.id.recyclerViewBerita) as RecyclerView
 
@@ -92,36 +93,11 @@ class BeritaFragment : Fragment() {
                         refreshButton.visibility = View.GONE
                     }
                 }
-
             })
-//            .getAsJSONObject(object :
-//                JSONObjectRequestListener {
-//                override fun onResponse(response: JSONObject) {
-//                    Log.e("kotlinResponse", response.toString())
-//                    val jsonArray: JSONArray = response.getJSONArray("result")
-//
-//                    for (i in 0 until jsonArray.length()) {
-//                        val jsonObject: JSONObject = jsonArray.getJSONObject(i)
-////                        Log.e("DAPAT", jsonObject.optString("id_beritahow"))
-//                        var isi1 = jsonObject.optString("berita_judul").toString()
-//                        var isi2 = jsonObject.optString("berita_link").toString()
-//                        var isi3 = jsonObject.optString("berita_gambar").toString()
-//
-//                        berita.add(BeritaModel("$isi1", "$isi2", "$isi3"))
-//                    }
-//                    val adapter = BeritaAdapter(berita) { beritaItem: BeritaModel ->
-//                        partItemClicked(beritaItem)
-//                    }
-//                    recyclerView.adapter = adapter
-//                }
-//
-//                override fun onError(anError: ANError?) {
-//                    Log.i("_err", anError.toString())
-//                }
-//            })
     }
 
     private fun partItemClicked(beritaItem: BeritaModel) {
-        Log.e("DAPAT", "Hai, ini partItemClicked")
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(beritaItem.berita_link))
+        startActivity(browserIntent)
     }
 }

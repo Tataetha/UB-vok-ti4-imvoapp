@@ -52,7 +52,8 @@ class JurusanDetailAdapter(
         }
 
         //fun untuk memanggil data ketika item diklik
-        fun bind(part: Perusahaan, clickListener: (Perusahaan) -> Unit) {
+        fun bind(part: Perusahaan, clickListener: (Perusahaan) -> Unit)
+        {
             itemView.setOnClickListener { clickListener(part) }
         }
     }

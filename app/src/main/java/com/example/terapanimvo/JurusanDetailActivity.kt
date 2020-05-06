@@ -66,14 +66,15 @@ class JurusanDetailActivity : AppCompatActivity() {
         var perusahaanList = ArrayList<Perusahaan>()
         progressBar.visibility = View.VISIBLE
         AndroidNetworking.get("$ip/jurusan/$jurusan_id")
-            .setPriority(Priority.MEDIUM).build().getAsJSONObject(object :
-                JSONObjectRequestListener {
+            .setPriority(Priority.MEDIUM)
+            .build()
+            .getAsJSONObject(object : JSONObjectRequestListener
+            {
                 override fun onResponse(response: JSONObject) {
                     Log.e("kotlinResponse", response.toString())
-                    val jsonArray: JSONArray = response.getJSONArray("perusahaan")
+                    val jsonArray: JSONArray = response!!.getJSONArray("perusahaan")
                     for (i in 0 until jsonArray.length()) {
                         val jsonObject: JSONObject = jsonArray.getJSONObject(i)
-//                        Log.e("OUTPUT", jsonObject.optString("perusahaan_nama"))
                         var isi1 = jsonObject.optString("perusahaan_id").toInt()
                         var isi2 = jsonObject.optString("perusahaan_nama").toString()
                         var isi3 = jsonObject.optString("perusahaan_alamat").toString()
@@ -111,7 +112,9 @@ class JurusanDetailActivity : AppCompatActivity() {
             })
     }
 
-    private fun partItemClicked(jurusanItem: Perusahaan) {
-//        TODO(Intent to Detail Perusahaan)
+    private fun partItemClicked(perusahaanItem: Perusahaan) {
+        val intent = Intent(this, PerusahaanDetailActivity::class.java)
+        intent.putExtra("perusahaan_id", perusahaanItem.perusahaan_id.toString())
+        startActivity(intent)
     }
 }

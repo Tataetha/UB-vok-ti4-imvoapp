@@ -14,6 +14,18 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".PerusahaanDetailUlasanActivity"
+            android:label="@string/title_ulasan"
+            android:theme="@style/AppTheme.NoActionBar2" />
+        <activity
+            android:name=".PerusahaanDetailActivity"
+            android:label="@string/title_dperusahaan"
+            android:theme="@style/AppTheme.NoActionBar2" />
+        <activity
+            android:name=".PerusahaanActivity"
+            android:label="@string/title_dperusahaan"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".JurusanDetailActivity"
             android:label="@string/title_djurusan"
             android:theme="@style/AppTheme.NoActionBar" />

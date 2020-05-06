@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import com.example.terapanimvo.JurusanActivity
+import com.example.terapanimvo.PerusahaanActivity
 import com.example.terapanimvo.R
+import kotlinx.android.synthetic.main.magang_fragment.*
 
 class MagangFragment : Fragment() {
 
@@ -22,10 +24,12 @@ class MagangFragment : Fragment() {
     ): View {
         val root = inflater.inflate(R.layout.magang_fragment, container, false)
         val cardJurusan = root.findViewById(R.id.cardJurusan) as CardView
+        val cardPerusahaan = root.findViewById(R.id.cardPerusahaan) as CardView
 
-//        cardPerusahaan.setOnClickListener {
-//            startActivity(Intent(this, IdentitasActivity::class.java))
-//        }
+        cardPerusahaan.setOnClickListener {
+            startActivity(Intent(activity, PerusahaanActivity::class.java))
+        }
+
         cardJurusan.setOnClickListener {
             startActivity(Intent(activity, JurusanActivity::class.java))
         }

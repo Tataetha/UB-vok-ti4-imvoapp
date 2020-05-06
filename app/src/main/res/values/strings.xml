@@ -3,7 +3,12 @@
     <string name="title_beranda">Beranda</string>
     <string name="title_magang">Magang</string>
     <string name="title_perusahaan">Perusahaan</string>
+    <string name="title_dperusahaan">Detail Perusahaan</string>
+    <string name="title_ulasan">Ulasan Mahasiswa</string>
     <string name="title_jurusan">Jurusan</string>
     <string name="title_djurusan">Detail Jurusan</string>
     <string name="title_berita">Berita</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

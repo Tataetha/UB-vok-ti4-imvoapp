@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PerusahaanDetailUlasanActivity"
+    android:layout_gravity="center">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/actBarPerusahaanDetailUlasan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarPerusahaanDetailUlasan"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_below="@id/actBarPerusahaanDetailUlasan"
+        android:id="@+id/layoutPerusahaanNamaUlasan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/colorAccent"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/tv_D_ulasan_perusahaanNama"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/container_card"
+        android:layout_width="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_height="280dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginRight="38dp"
+        android:background="@drawable/container_perusahaan2">
+
+        <RelativeLayout
+            android:id="@+id/container_ulasan"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/container_perusahaan"
+            android:padding="10dp">
+            <RelativeLayout
+                android:id="@+id/container_testimoni"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+                <TextView
+                    android:id="@+id/petik"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="''"
+                    android:textSize="30dp"
+                    android:fontFamily="sans-serif-medium"/>
+                <TextView
+                    android:layout_toRightOf="@id/petik"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="13dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/tv_D_ulasanTestimoni"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:ellipsize="end"
+                    android:maxLines="6"
+                    tools:text="" />
+
+                <RelativeLayout
+                    android:id="@+id/container_by"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_D_ulasanTestimoni"
+                    android:layout_alignParentRight="true">
+                    <TextView
+                        android:id="@+id/strip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="- "
+                        android:textSize="14dp"
+                        android:textStyle="italic"/>
+                    <TextView
+                        android:id="@+id/tv_D_ulasanPeriode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/strip"
+                        android:text="waktu"
+                        android:textSize="12dp"
+                        android:textStyle="italic"/>
+                    <TextView
+                        android:id="@+id/koma"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/tv_D_ulasanPeriode"
+                        android:text=", "
+                        android:textSize="12dp"
+                        android:textStyle="italic"/>
+                    <TextView
+                        android:id="@+id/tv_D_ulasanPerusahaan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/koma"
+                        android:text="perusahaan"
+                        android:textSize="12dp"
+                        android:textStyle="italic"/>
+                </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/container_orang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/container_testimoni">
+                <TextView
+                    android:id="@+id/tv_D_ulasanNama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/colorText"
+                    android:textSize="16dp"/>
+                <TextView
+                    android:id="@+id/tv_D_ulasanJurusan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_D_ulasanNama"
+                    android:layout_toLeftOf="@id/strip2"
+                    android:text=""
+                    android:textSize="15dp"/>
+                <TextView
+                    android:id="@+id/strip2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_D_ulasanNama"
+                    android:text=" - "
+                    android:layout_centerHorizontal="true"
+                    android:textSize="15dp"/>
+                <TextView
+                    android:id="@+id/tv_D_ulasan_angkatan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_D_ulasanNama"
+                    android:layout_toRightOf="@id/strip2"
+                    android:text=""
+                    android:textSize="15dp"/>
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_D_ulasanCreated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/container_orang"
+                android:layout_marginTop="45dp"
+                android:ellipsize="end"
+                android:maxLength="10"
+                android:maxLines="1"
+                android:text="text"
+                android:textSize="10dp"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+    </RelativeLayout>
+    <ProgressBar
+        android:id="@+id/progress_circularPerusahaanDetailUlasan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <ImageButton
+        android:id="@+id/imageButtonPerusahaanDetailUlasan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg_button_refresh"
+        app:srcCompat="@drawable/ic_refresh_black_24dp" />
+</RelativeLayout>

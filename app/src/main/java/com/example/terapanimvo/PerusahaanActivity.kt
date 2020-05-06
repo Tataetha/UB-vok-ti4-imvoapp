@@ -3,73 +3,77 @@ package com.example.terapanimvo
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.View
 import android.widget.ImageButton
 import android.widget.ProgressBar
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.terapanimvo.helper.ApiClient
 import com.example.terapanimvo.helper.JurusanAdapter
+import com.example.terapanimvo.helper.PerusahaanAdapter
 import com.example.terapanimvo.model.JurusanModel
+import com.example.terapanimvo.model.PerusahaanModel
 import retrofit2.Call
 import retrofit2.Response
 import java.util.*
 import kotlin.collections.ArrayList
 
-class JurusanActivity : AppCompatActivity() {
-
+class PerusahaanActivity : AppCompatActivity()
+{
     lateinit var progressBar: ProgressBar
     lateinit var refreshButton: ImageButton
     lateinit var toolbar: Toolbar
     lateinit var recyclerView: RecyclerView
 
-    lateinit var adapter: JurusanAdapter
-    lateinit var itemList: MutableList<JurusanModel>
+    lateinit var adapter: PerusahaanAdapter
+    lateinit var itemList: MutableList<PerusahaanModel>
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_jurusan)
+        setContentView(R.layout.activity_perusahaan)
 
-        progressBar = findViewById(R.id.progressJurusan)
-        refreshButton = findViewById(R.id.imageButtonJurusan)
+        progressBar = findViewById(R.id.progressPerusahaan)
+        refreshButton = findViewById(R.id.imageButtonPerusahaan)
         refreshButton.visibility = View.GONE
 
-        toolbar = findViewById(R.id.toolbarJurusan)
+        toolbar = findViewById(R.id.toolbarPerusahaan)
         setSupportActionBar(toolbar)
         toolbar.navigationIcon = resources.getDrawable(R.drawable.ic_arrow_back_black_24dp)
         toolbar.setNavigationOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
 
-        recyclerView = findViewById(R.id.recyclerViewJurusan)
+        recyclerView = findViewById(R.id.recyclerViewPerusahaan)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         getData()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean
+    {
         val inflater = menuInflater
-        inflater.inflate(R.menu.jurusan_menu, menu)
+        inflater.inflate(R.menu.perusahaan_menu, menu)
 
         val manager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val searchItem = menu?.findItem(R.id.action_searchJurusan)
+        val searchItem = menu?.findItem(R.id.action_searchPerusahaan)
         val searchView = searchItem?.actionView as SearchView
 
         searchView.setSearchableInfo(manager.getSearchableInfo(componentName))
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextChange(query: String?): Boolean {
+            override fun onQueryTextSubmit(query: String?): Boolean {
                 Log.e("INPUT", query.toString())
                 filterList(query.toString())
                 return false
             }
 
-            override fun onQueryTextSubmit(query: String?): Boolean {
+            override fun onQueryTextChange(query: String?): Boolean {
                 filterList(query.toString())
                 return true
             }
@@ -78,21 +82,25 @@ class JurusanActivity : AppCompatActivity() {
     }
 
     private fun filterList(filterItem: String) {
-        var tempList: MutableList<JurusanModel> = ArrayList()
+        var tempList: MutableList<PerusahaanModel> = ArrayList()
         for (d in itemList) {
             val e = Log.e("INPUT", d.toString())
-            if (filterItem.toLowerCase(Locale.ROOT) in d.jurusan_nama.toLowerCase(Locale.ROOT)) {
+            if (filterItem.toLowerCase(Locale.ROOT) in d.perusahaan_nama.toLowerCase(Locale.ROOT))
+            {
                 tempList.add(d)
             }
         }
         adapter.updateList(tempList)
     }
 
-    private fun getData() {
+    private fun getData()
+    {
         progressBar.visibility = View.VISIBLE
-        var apiCall = ApiClient.create().getJurusan()
-        apiCall.enqueue(object : retrofit2.Callback<MutableList<JurusanModel>> {
-            override fun onFailure(call: Call<MutableList<JurusanModel>>, t: Throwable) {
+        var apiCall =  ApiClient.create().getPerusahaan()
+        apiCall.enqueue(object : retrofit2.Callback<MutableList<PerusahaanModel>>
+        {
+            override fun onFailure(call: Call<MutableList<PerusahaanModel>>, t: Throwable)
+            {
                 Log.e("ERROR", "${t.message}")
                 progressBar.visibility = View.GONE
                 refreshButton.visibility = View.VISIBLE
@@ -103,30 +111,31 @@ class JurusanActivity : AppCompatActivity() {
             }
 
             override fun onResponse(
-                call: Call<MutableList<JurusanModel>>,
-                response: Response<MutableList<JurusanModel>>
-            ) {
-                if (response.isSuccessful) {
+                call: Call<MutableList<PerusahaanModel>>,
+                response: Response<MutableList<PerusahaanModel>>
+            ){
+                if (response.isSuccessful)
+                {
                     progressBar.visibility = View.GONE
                     itemList = response.body()!!
-//                    Log.e("OUTPUT", "$itemList")
 
-                    adapter = JurusanAdapter(itemList)
+                    adapter = PerusahaanAdapter(itemList)
                     {
-                        jurusanItem: JurusanModel -> partItemClicked(jurusanItem)
+                        perusahaanItem: PerusahaanModel -> partItemClicked(perusahaanItem)
                     }
-                    val layoutManager = LinearLayoutManager(this@JurusanActivity)
+                    val layoutManager = LinearLayoutManager(this@PerusahaanActivity)
                     recyclerView.layoutManager = layoutManager
                     recyclerView.adapter = adapter
                 }
             }
+
         })
     }
 
-    private fun partItemClicked(jurusanItem: JurusanModel) {
-        val intent = Intent(this, JurusanDetailActivity::class.java)
-        intent.putExtra("jurusan_id", jurusanItem.jurusan_id.toString())
-        intent.putExtra("jurusan_nama", jurusanItem.jurusan_nama)
+    private fun partItemClicked(perusahaanItem: PerusahaanModel)
+    {
+        val intent = Intent(this, PerusahaanDetailActivity::class.java)
+        intent.putExtra("perusahaan_id", perusahaanItem.perusahaan_id.toString())
         startActivity(intent)
     }
 }

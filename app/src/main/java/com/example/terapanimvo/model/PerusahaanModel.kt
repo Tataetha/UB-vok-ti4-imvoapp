@@ -29,3 +29,10 @@ class Ulasan(
     val ulasan_testimoni: String,
     val ulasan_created_at: String
 )
+
+class peru(
+    val perusahaan_nama: String,
+    val perusahaan_alamat: String,
+    val perusahaan_logo: String,
+    val perusahaan_id: String
+)

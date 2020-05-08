@@ -22,22 +22,22 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
-        android:layout_below="@id/actBarJurusanDetail"
         android:id="@+id/layoutJurusanDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/actBarJurusanDetail"
+        android:background="@color/colorAccent"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@color/colorAccent"
         tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/textViewJurusanDetailNama"
-            android:textColor="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nama Jurusan"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/colorPrimary" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

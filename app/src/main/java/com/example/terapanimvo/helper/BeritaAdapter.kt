@@ -11,9 +11,10 @@ import com.example.terapanimvo.ip
 import com.example.terapanimvo.model.BeritaModel
 import com.squareup.picasso.Picasso
 
-class BeritaAdapter (
+class BeritaAdapter(
     private var itemsCells: ArrayList<BeritaModel>,
-    private val clickListener: (BeritaModel) -> Unit) :
+    private val clickListener: (BeritaModel) -> Unit
+) :
     RecyclerView.Adapter<BeritaAdapter.ViewHolder>() {
 
     //insialisasi untuk list yang akan dibuat menggunakan RecylerView
@@ -22,8 +23,6 @@ class BeritaAdapter (
         val textViewLink = itemView.findViewById(R.id.textViewUrl) as TextView
         val imageViewBerita = itemView.findViewById(R.id.imageViewBerita) as ImageView
 
-//        val textViewEmail = itemView.findViewById(R.id.textViewEmail) as TextView
-//        val textViewAddress = itemView.findViewById(R.id.textViewAddress) as TextView
         //fun untuk memanggil data ketika item diklik
         fun bind(part: BeritaModel, clickListener: (BeritaModel) -> Unit) {
             itemView.setOnClickListener { clickListener(part) }
@@ -46,7 +45,6 @@ class BeritaAdapter (
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(itemsCells[position], clickListener)
         val berita: BeritaModel = itemsCells[position]
-//        holder.textViewId.text = berita.beritaId.toString()
         holder.textViewJudul.text = berita.berita_judul
         holder.textViewLink.text = berita.berita_link
         val image = berita.berita_gambar

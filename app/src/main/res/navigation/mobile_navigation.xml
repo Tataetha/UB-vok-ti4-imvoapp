@@ -9,17 +9,17 @@
         android:id="@+id/navigation_beranda"
         android:name="com.example.terapanimvo.ui.BerandaFragment"
         android:label="@string/title_beranda"
-        tools:layout="@layout/beranda_fragment" />
+        tools:layout="@layout/fragment_beranda" />
 
     <fragment
         android:id="@+id/navigation_magang"
         android:name="com.example.terapanimvo.ui.MagangFragment"
         android:label="@string/title_magang"
-        tools:layout="@layout/magang_fragment" />
+        tools:layout="@layout/fragment_magang" />
 
     <fragment
         android:id="@+id/navigation_berita"
         android:name="com.example.terapanimvo.ui.BeritaFragment"
         android:label="@string/title_berita"
-        tools:layout="@layout/berita_fragment" />
+        tools:layout="@layout/fragment_berita" />
 </navigation>

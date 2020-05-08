@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     android:orientation="vertical"
-    tools:context=".PerusahaanDetailUlasanActivity"
-    android:layout_gravity="center">
+    tools:context=".PerusahaanDetailUlasanActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/actBarPerusahaanDetailUlasan"
@@ -22,66 +22,48 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <LinearLayout
-        android:layout_below="@id/actBarPerusahaanDetailUlasan"
-        android:id="@+id/layoutPerusahaanNamaUlasan"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:background="@color/colorAccent"
-        tools:ignore="MissingConstraints">
-
-        <TextView
-            android:id="@+id/tv_D_ulasan_perusahaanNama"
-            android:textColor="@color/colorPrimary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-    </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/container_card"
-        android:layout_width="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_height="280dp"
-        android:layout_marginStart="38dp"
-        android:layout_marginLeft="38dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginRight="38dp"
-        android:background="@drawable/container_perusahaan2">
+        android:layout_margin="8dp"
+        android:background="@drawable/container_perusahaan2"
+        app:cardElevation="4dp"
+        app:cardMaxElevation="4dp">
 
         <RelativeLayout
-            android:id="@+id/container_ulasan"
-            android:layout_width="match_parent"
-            android:layout_height="280dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/container_perusahaan"
-            android:padding="10dp">
+            android:id="@+id/container_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
             <RelativeLayout
                 android:id="@+id/container_testimoni"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp">
+                android:background="@drawable/container_perusahaan"
+                android:padding="8dp">
+
                 <TextView
                     android:id="@+id/petik"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-smallcaps"
                     android:text="''"
-                    android:textSize="30dp"
-                    android:fontFamily="sans-serif-medium"/>
+                    android:textSize="48dp" />
+
                 <TextView
-                    android:layout_toRightOf="@id/petik"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginRight="13dp"
-                    android:layout_marginTop="10dp"
                     android:id="@+id/tv_D_ulasanTestimoni"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_toRightOf="@id/petik"
                     android:ellipsize="end"
-                    android:maxLines="6"
-                    tools:text="" />
+                    android:maxLines="8"
+                    android:textSize="24sp"
+                    tools:text="testi" />
 
                 <RelativeLayout
                     android:id="@+id/container_by"
@@ -89,13 +71,15 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tv_D_ulasanTestimoni"
                     android:layout_alignParentRight="true">
+
                     <TextView
                         android:id="@+id/strip"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="- "
                         android:textSize="14dp"
-                        android:textStyle="italic"/>
+                        android:textStyle="italic" />
+
                     <TextView
                         android:id="@+id/tv_D_ulasanPeriode"
                         android:layout_width="wrap_content"
@@ -103,7 +87,8 @@
                         android:layout_toRightOf="@id/strip"
                         android:text="waktu"
                         android:textSize="12dp"
-                        android:textStyle="italic"/>
+                        android:textStyle="italic" />
+
                     <TextView
                         android:id="@+id/koma"
                         android:layout_width="wrap_content"
@@ -111,7 +96,8 @@
                         android:layout_toRightOf="@id/tv_D_ulasanPeriode"
                         android:text=", "
                         android:textSize="12dp"
-                        android:textStyle="italic"/>
+                        android:textStyle="italic" />
+
                     <TextView
                         android:id="@+id/tv_D_ulasanPerusahaan"
                         android:layout_width="wrap_content"
@@ -119,62 +105,77 @@
                         android:layout_toRightOf="@id/koma"
                         android:text="perusahaan"
                         android:textSize="12dp"
-                        android:textStyle="italic"/>
+                        android:textStyle="italic" />
                 </RelativeLayout>
             </RelativeLayout>
-            <RelativeLayout
+
+            <LinearLayout
                 android:id="@+id/container_orang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/container_testimoni"
                 android:layout_marginTop="20dp"
-                android:layout_below="@id/container_testimoni">
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/tv_D_ulasanNama"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
                     android:layout_centerHorizontal="true"
+                    android:text="nama"
                     android:textColor="@color/colorText"
-                    android:textSize="16dp"/>
-                <TextView
-                    android:id="@+id/tv_D_ulasanJurusan"
+                    android:textSize="16dp" />
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_D_ulasanNama"
-                    android:layout_toLeftOf="@id/strip2"
-                    android:text=""
-                    android:textSize="15dp"/>
-                <TextView
-                    android:id="@+id/strip2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_D_ulasanNama"
-                    android:text=" - "
-                    android:layout_centerHorizontal="true"
-                    android:textSize="15dp"/>
-                <TextView
-                    android:id="@+id/tv_D_ulasan_angkatan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_D_ulasanNama"
-                    android:layout_toRightOf="@id/strip2"
-                    android:text=""
-                    android:textSize="15dp"/>
-            </RelativeLayout>
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_D_ulasanJurusan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_D_ulasanNama"
+                        android:layout_toLeftOf="@id/strip2"
+                        android:text="jurusan"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/strip2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_D_ulasanNama"
+                        android:layout_centerHorizontal="true"
+                        android:text=" - "
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tv_D_ulasanAngkatan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_D_ulasanNama"
+                        android:layout_toRightOf="@id/strip2"
+                        android:text="tahun"
+                        android:textSize="16dp" />
+                </LinearLayout>
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/tv_D_ulasanCreated"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/container_orang"
-                android:layout_marginTop="45dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
                 android:ellipsize="end"
                 android:maxLength="10"
                 android:maxLines="1"
-                android:text="text"
-                android:textSize="10dp"
-                android:layout_alignParentRight="true"/>
+                android:text="created"
+                android:textSize="12dp" />
         </RelativeLayout>
-    </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
     <ProgressBar
         android:id="@+id/progress_circularPerusahaanDetailUlasan"
         android:layout_width="wrap_content"

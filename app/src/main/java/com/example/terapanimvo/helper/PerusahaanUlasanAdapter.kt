@@ -10,15 +10,15 @@ import com.example.terapanimvo.model.Ulasan
 
 class PerusahaanUlasanAdapter(
     private var itemsCells: MutableList<Ulasan>,
-    private var clickListener: (Ulasan) -> Unit )
-    : RecyclerView.Adapter<PerusahaanUlasanAdapter.ViewHolder>()
-{
+    private var clickListener: (Ulasan) -> Unit
+) : RecyclerView.Adapter<PerusahaanUlasanAdapter.ViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
         val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.list_perusahaan_ulasan, parent, false)
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.list_perusahaan_ulasan, parent, false)
         return ViewHolder(itemView)
     }
 
@@ -34,8 +34,7 @@ class PerusahaanUlasanAdapter(
         holder.textViewUlasanCreated.text = itemData.ulasan_created_at
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
-    {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         lateinit var textViewUlasanID: TextView
         lateinit var textViewUlasanNama: TextView
         lateinit var textViewUlasanCreated: TextView
@@ -46,8 +45,7 @@ class PerusahaanUlasanAdapter(
             textViewUlasanCreated = itemView.findViewById(R.id.tv_ulasanCreated) as TextView
         }
 
-        fun bind(part: Ulasan, clickListener: (Ulasan) -> Unit)
-        {
+        fun bind(part: Ulasan, clickListener: (Ulasan) -> Unit) {
             itemView.setOnClickListener { clickListener(part) }
         }
     }

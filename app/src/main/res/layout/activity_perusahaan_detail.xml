@@ -1,261 +1,286 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_height="match_parent"
-    android:layout_width="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".PerusahaanDetailActivity">
 
-    <RelativeLayout
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/actBarPerusahaanDetail"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/actBarPerusahaanDetail"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarPerusahaanDetail"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/actBarPerusahaanDetail">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.AppBarOverlay">
+            android:orientation="vertical"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbarPerusahaanDetail"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <RelativeLayout
-            android:id="@+id/container_perusahaan"
-            android:layout_width="wrap_content"
-            android:layout_height="444dp"
-            android:layout_below="@id/actBarPerusahaanDetail"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/container_perusahaan"
-            android:padding="10dp">
-
-            <RelativeLayout
-                android:id="@+id/topArea"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/img_perusahaanLogo"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    tools:src="@android:color/darker_gray" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toEndOf="@id/img_perusahaanLogo"
-                    android:layout_toRightOf="@id/img_perusahaanLogo"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/tv_perusahaanNama"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:textColor="@color/colorText"
-                        android:textSize="17sp"
-                        android:textStyle="bold"
-                        tools:text="Nama Perusahaan" />
-
-                    <TextView
-                        android:id="@+id/tv_perusahaanAlamat"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:maxLines="2"
-                        tools:text="Alamat Perusahaan" />
-                </LinearLayout>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/middleArea"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/topArea"
-                android:padding="15dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginRight="5dp"
-                        android:src="@drawable/ic_telephone" />
-
-                    <TextView
-                        android:id="@+id/tv_perusahaanTelepon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginRight="15dp"
-                        android:text="Telepon Perusahaan"
-                        android:textColor="@color/colorText" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginRight="5dp"
-                        android:src="@drawable/ic_email" />
-
-                    <TextView
-                        android:id="@+id/tv_perusahaanEmail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Email Perusahaan"
-                        android:textColor="@color/colorText" />
-                </LinearLayout>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/bottomArea"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/middleArea"
-                android:paddingLeft="10dp"
-                android:paddingTop="0dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="5dp">
-
-                <TextView
-                    android:id="@+id/judul"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Jurusan yang dibutuhkan :"
-                    android:textStyle="bold" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_JurusanDibutuhkan"
-                    android:layout_width="match_parent"
-                    android:layout_height="85dp"
-                    android:layout_below="@+id/judul"
-                    android:layout_marginStart="1dp"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginTop="1dp"
-                    android:layout_marginEnd="1dp"
-                    android:layout_marginRight="1dp"
-                    android:layout_marginBottom="1dp"
-                    android:paddingHorizontal="4dp"
-                    android:paddingVertical="4dp" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/slideshow"
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:layout_below="@id/bottomArea"
-                android:paddingLeft="10dp"
-                android:paddingTop="0dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="5dp">
-
-                <TextView
-                    android:id="@+id/judul2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:text="Gambar Perusahaan :"
-                    android:textStyle="bold" />
-
-                <com.denzcoskun.imageslider.ImageSlider
-                    android:id="@+id/image_slider"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@id/judul2"
-                    app:auto_cycle="true"
-                    app:corner_radius="20"
-                    app:delay="1500"
-                    app:error_image="@drawable/bg_gradient"
-                    app:period="1500"
-                    app:placeholder="@drawable/bg_gradient" />
-            </RelativeLayout>
-        </RelativeLayout>
-        <RelativeLayout
-            android:id="@+id/container_ulasan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/container_perusahaan"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constrain_judul3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/judul3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Ulasan Mahasiswa :"
-                    android:textColor="@color/colorText"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.027"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                android:layout_margin="8dp"
+                app:cardElevation="4dp"
+                app:cardMaxElevation="4dp">
 
                 <RelativeLayout
-                    android:id="@+id/relativeLayout"
-                    android:layout_width="130dp"
-                    android:layout_height="4dp"
-                    android:background="@color/colorAccent"
-                    app:layout_constraintEnd_toEndOf="@+id/judul3"
-                    app:layout_constraintHorizontal_bias="0.615"
-                    app:layout_constraintStart_toStartOf="@+id/judul3"
-                    app:layout_constraintTop_toBottomOf="@+id/judul3" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_Ulasan"
-                android:layout_width="match_parent"
-                android:layout_height="350dp"
-                android:layout_below="@+id/constrain_judul3"
-                android:layout_marginStart="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginEnd="1dp"
-                android:layout_marginRight="1dp"
-                android:layout_marginBottom="1dp"
-                android:paddingHorizontal="4dp"
-                android:paddingVertical="4dp" />
-        </RelativeLayout>
-        <ProgressBar
-            android:id="@+id/progress_circularPerusahaanDetail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true" />
+                    android:id="@+id/container_perusahaan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="8dp">
 
-        <ImageButton
-            android:id="@+id/imageButtonPerusahaanDetail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@drawable/bg_button_refresh"
-            app:srcCompat="@drawable/ic_refresh_black_24dp" />
-    </RelativeLayout>
-</ScrollView>
+                    <RelativeLayout
+                        android:id="@+id/topArea"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/img_perusahaanLogo"
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginRight="16dp"
+                            tools:src="@android:color/darker_gray" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@id/img_perusahaanLogo"
+                            android:layout_toRightOf="@id/img_perusahaanLogo"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_perusahaanNama"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:textColor="@color/colorText"
+                                android:textSize="17sp"
+                                android:textStyle="bold"
+                                tools:text="Nama Perusahaan" />
+
+                            <TextView
+                                android:id="@+id/tv_perusahaanAlamat"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:maxLines="2"
+                                tools:text="Alamat Perusahaan" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/middleArea"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/topArea"
+                        android:padding="12dp">
+
+                        <LinearLayout
+                            android:id="@+id/rowTelephone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_marginRight="5dp"
+                                android:src="@drawable/ic_telephone" />
+
+                            <TextView
+                                android:id="@+id/tv_perusahaanTelepon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="15dp"
+                                android:layout_marginRight="15dp"
+                                android:text="Telepon Perusahaan"
+                                android:textColor="@color/colorText" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/rowEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rowTelephone"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_marginRight="5dp"
+                                android:src="@drawable/ic_email" />
+
+                            <TextView
+                                android:id="@+id/tv_perusahaanEmail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Email Perusahaan"
+                                android:textColor="@color/colorText" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/bottomArea"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/middleArea"
+                        android:paddingHorizontal="8dp"
+                        android:paddingTop="0dp"
+                        android:paddingBottom="8dp">
+
+                        <TextView
+                            android:id="@+id/judulJurusan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Jurusan yang dibutuhkan :"
+                            android:textStyle="bold" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_JurusanDibutuhkan"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/judulJurusan"
+                            android:layout_marginStart="1dp"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginTop="1dp"
+                            android:layout_marginEnd="1dp"
+                            android:layout_marginRight="1dp"
+                            android:layout_marginBottom="1dp"
+                            android:paddingHorizontal="4dp"
+                            android:paddingVertical="4dp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/slideshow"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:layout_below="@id/bottomArea"
+                        android:paddingHorizontal="8dp"
+                        android:paddingTop="0dp"
+                        android:paddingBottom="4dp">
+
+                        <TextView
+                            android:id="@+id/judulGambar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="Gambar Perusahaan :"
+                            android:textStyle="bold" />
+
+                        <com.denzcoskun.imageslider.ImageSlider
+                            android:id="@+id/image_slider"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_below="@id/judulGambar"
+                            app:auto_cycle="true"
+                            app:corner_radius="20"
+                            app:delay="1500"
+                            app:error_image="@drawable/bg_gradient"
+                            app:period="1500"
+                            app:placeholder="@drawable/bg_gradient" />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginBottom="16dp"
+                app:cardElevation="4dp"
+                app:cardMaxElevation="4dp">
+
+                <RelativeLayout
+                    android:id="@+id/container_ulasan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/container_perusahaan"
+                    android:layout_margin="8dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constrain_judulUlasan"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/judulUlasan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ulasan Mahasiswa :"
+                            android:textColor="@color/colorText"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.027"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <RelativeLayout
+                            android:id="@+id/relativeLayout"
+                            android:layout_width="130dp"
+                            android:layout_height="4dp"
+                            android:background="@color/colorAccent"
+                            app:layout_constraintEnd_toEndOf="@+id/judulUlasan"
+                            app:layout_constraintHorizontal_bias="0.615"
+                            app:layout_constraintStart_toStartOf="@+id/judulUlasan"
+                            app:layout_constraintTop_toBottomOf="@+id/judulUlasan" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_Ulasan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/constrain_judulUlasan"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginEnd="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:paddingHorizontal="4dp"
+                        android:paddingVertical="4dp" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progress_circularPerusahaanDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <ImageButton
+        android:id="@+id/imageButtonPerusahaanDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg_button_refresh"
+        app:srcCompat="@drawable/ic_refresh_black_24dp" />
+</RelativeLayout>

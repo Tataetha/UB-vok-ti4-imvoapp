@@ -1,36 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:paddingVertical="2dp">
+    android:layout_gravity="top"
+    android:background="@drawable/bg_chips"
+    android:padding="4dp">
 
-    <androidx.cardview.widget.CardView
+    <TextView
+        android:id="@+id/tv_JurusanNama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:padding="4dp"
+        android:textColor="@color/colorAccent"
+        tools:text="ChipText" />
+
+    <TextView
+        android:id="@+id/tv_JurusanId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="0dp"
-        tools:ignore="MissingConstraints">
+        android:visibility="gone" />
+</RelativeLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="5dp">
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--    xmlns:tools="http://schemas.android.com/tools"-->
+    <!--    android:layout_width="wrap_content"-->
+    <!--    android:layout_height="wrap_content"-->
+    <!--    android:padding="4dp"-->
+    <!--    android:orientation="vertical">-->
 
-            <TextView
-                android:id="@+id/tv_JurusanNama"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="text"
-                android:textColor="#000" />
-            <TextView
-                android:id="@+id/tv_JurusanId"
-                android:visibility="gone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="#000" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--    <com.google.android.material.chip.Chip-->
+    <!--        android:id="@+id/tv_JurusanNama"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="@string/chip_text" />-->
+    <!--</LinearLayout>-->

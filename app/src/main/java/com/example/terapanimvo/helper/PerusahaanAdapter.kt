@@ -17,21 +17,18 @@ class PerusahaanAdapter(
     private var itemsCells: MutableList<PerusahaanModel>,
     private var clickListener: (PerusahaanModel) -> Unit
 ) :
-    RecyclerView.Adapter<PerusahaanAdapter.ViewHolder>()
-{
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder
-    {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.list_perusahaan, parent, false)
+    RecyclerView.Adapter<PerusahaanAdapter.ViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.list_perusahaan, parent, false)
         return ViewHolder(itemView)
     }
 
-    override fun getItemCount(): Int
-    {
+    override fun getItemCount(): Int {
         return itemsCells.size
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int)
-    {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val itemData = itemsCells[position]
         holder.bind(itemData, clickListener)
 
@@ -40,17 +37,14 @@ class PerusahaanAdapter(
         holder.PerusahaanNama.text = itemData.perusahaan_nama
         holder.PerusahaanAlamat.text = itemData.perusahaan_alamat
         holder.PerusahaanId.text = itemData.perusahaan_id.toString()
-        holder.ArrayJurusanModel = itemData.jurusan
 
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
-    {
-        lateinit var PerusahaanLogo : ImageView
-        lateinit var PerusahaanNama : TextView
-        lateinit var PerusahaanAlamat : TextView
-        lateinit var PerusahaanId : TextView
-        lateinit var ArrayJurusanModel: MutableList<Jurusan>
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        lateinit var PerusahaanLogo: ImageView
+        lateinit var PerusahaanNama: TextView
+        lateinit var PerusahaanAlamat: TextView
+        lateinit var PerusahaanId: TextView
 
         init {
             PerusahaanLogo = itemView.findViewById(R.id.imageViewPerusahaanLogo)

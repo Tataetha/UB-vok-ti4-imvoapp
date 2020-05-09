@@ -23,7 +23,7 @@
             android:theme="@style/AppTheme.NoActionBar2" />
         <activity
             android:name=".PerusahaanActivity"
-            android:label="@string/title_dperusahaan"
+            android:label="@string/title_perusahaan"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".JurusanDetailActivity"

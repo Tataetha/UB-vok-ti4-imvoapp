@@ -40,20 +40,16 @@ class JurusanAdapter(
         holder.bind(itemData, clickListener)
         holder.textViewId.text = itemData.jurusan_id.toString()
         holder.textViewName.text = itemData.jurusan_nama
-        holder.arrayPerusahaanModel = itemData.perusahaan
     }
 
     //insialisasi untuk list yang akan dibuat menggunakan RecylerView
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         lateinit var textViewId: TextView
         lateinit var textViewName: TextView
-        lateinit var arrayPerusahaanModel: MutableList<Perusahaan>
 
         init {
             textViewId = itemView.findViewById(R.id.textViewJurusanId) as TextView
             textViewName = itemView.findViewById(R.id.textViewJurusanNama) as TextView
-//            arrayPerusahaanModel = itemView.findViewById(R.id.)
-            //fun untuk memanggil data ketika item diklik
         }
 
         fun bind(part: JurusanModel, clickListener: (JurusanModel) -> Unit) {

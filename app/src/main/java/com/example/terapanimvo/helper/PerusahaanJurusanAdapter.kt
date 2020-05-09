@@ -10,15 +10,15 @@ import com.example.terapanimvo.model.Jurusan
 
 class PerusahaanJurusanAdapter(
     private var itemsCells: MutableList<Jurusan>,
-    private var clickListener: (Jurusan) -> Unit )
-    : RecyclerView.Adapter<PerusahaanJurusanAdapter.ViewHolder>()
-{
+    private var clickListener: (Jurusan) -> Unit
+) : RecyclerView.Adapter<PerusahaanJurusanAdapter.ViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
         val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.list_perusahaan_jurusan, parent, false)
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.list_perusahaan_jurusan, parent, false)
         return ViewHolder(itemView)
     }
 
@@ -42,8 +42,7 @@ class PerusahaanJurusanAdapter(
             textViewNamaPerusahaan = itemView.findViewById(R.id.tv_JurusanNama) as TextView
         }
 
-        fun bind(part: Jurusan, clickListener: (Jurusan) -> Unit)
-        {
+        fun bind(part: Jurusan, clickListener: (Jurusan) -> Unit) {
             itemView.setOnClickListener { clickListener(part) }
         }
     }

@@ -4,8 +4,9 @@ import com.example.terapanimvo.custom.ApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+var BASE_URL = "https://imvoadmin.000webhostapp.com"
+
 object ApiClient {
-    var BASE_URL = "https://imvoadmin.000webhostapp.com"
 
     fun create(): ApiService {
         val retrofit = Retrofit.Builder()

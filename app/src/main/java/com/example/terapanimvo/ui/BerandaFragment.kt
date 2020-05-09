@@ -18,23 +18,22 @@ import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONArrayRequestListener
 import com.example.terapanimvo.PerusahaanDetailActivity
 import com.example.terapanimvo.R
-import com.example.terapanimvo.helper.ApiClient
 import com.example.terapanimvo.helper.BerandaAdapter
 import com.example.terapanimvo.helper.BeritaAdapter
 import com.example.terapanimvo.ip
 import com.example.terapanimvo.model.BeritaModel
-import com.example.terapanimvo.model.PerusahaanModel
-import com.example.terapanimvo.model.peru
+import com.example.terapanimvo.model.PerusahaanBeranda
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
-import retrofit2.Call
-import retrofit2.Response
 
 class BerandaFragment : Fragment() {
 
     lateinit var progressBar: ProgressBar
     lateinit var refreshButton: ImageButton
+
+    val perusahaan = ArrayList<PerusahaanBeranda>()
+    val berita = ArrayList<BeritaModel>()
 
     companion object {
         fun newInstance() = BerandaFragment()
@@ -44,29 +43,25 @@ class BerandaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater!!.inflate(R.layout.beranda_fragment, container, false)
-        val recyclerView = view.findViewById(R.id.recyclerViewPerusahaanHome) as RecyclerView
-        val recyclerVieww = view.findViewById(R.id.recyclerViewBeritaHome) as RecyclerView
-
+        val view = inflater!!.inflate(R.layout.fragment_beranda, container, false)
+        val recyclerViewJurusan = view.findViewById(R.id.recyclerViewPerusahaanHome) as RecyclerView
+        val recyclerViewBerita = view.findViewById(R.id.recyclerViewBeritaHome) as RecyclerView
 
         progressBar = view.findViewById(R.id.progress_circularPerusahaanHome)
         refreshButton = view.findViewById(R.id.imageButtonPerusahaanHome)
         refreshButton.visibility = View.GONE
         progressBar.visibility = View.VISIBLE
 
-        recyclerVieww.layoutManager = LinearLayoutManager(
-            activity,
-            LinearLayoutManager.HORIZONTAL,
-            false
-        )
-        recyclerView.layoutManager = LinearLayoutManager(activity)
+        recyclerViewBerita.layoutManager =
+            LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        recyclerViewJurusan.layoutManager = LinearLayoutManager(activity)
 
-        getData(recyclerView)
-        getDataBerita(recyclerVieww)
+        getDataJurusan(recyclerViewJurusan)
+        getDataBerita(recyclerViewBerita)
         return view
     }
-    private fun getData(view: RecyclerView){
-        val perusahaan = ArrayList<peru>()
+
+    private fun getDataJurusan(view: RecyclerView) {
         AndroidNetworking.get("$ip/perusahaan")
             .setPriority(Priority.MEDIUM).build()
             .getAsJSONArray(object :
@@ -76,25 +71,31 @@ class BerandaFragment : Fragment() {
                     try {
                         for (i in 0 until response.length()) {
                             val jsonObject: JSONObject = response.getJSONObject(i)
-                            var isi1 = jsonObject.optString("perusahaan_nama").toString()
-                            var isi2 = jsonObject.optString("perusahaan_alamat").toString()
-                            var isi3 = jsonObject.optString("perusahaan_logo").toString()
-                            var isi4 = jsonObject.optString("perusahaan_id").toString()
+                            var perusahaan_id = jsonObject.optString("perusahaan_id").toInt()
+                            var perusahaan_nama = jsonObject.optString("perusahaan_nama").toString()
+                            var perusahaan_alamat = jsonObject.optString("perusahaan_alamat").toString()
+                            var perusahaan_logo = jsonObject.optString("perusahaan_logo").toString()
 
                             perusahaan.add(
-                                peru("$isi1", "$isi2", "$isi3","$isi4"))
+                                PerusahaanBeranda(
+                                    perusahaan_id,
+                                    "$perusahaan_nama",
+                                    "$perusahaan_alamat",
+                                    "$perusahaan_logo"
+                                )
+                            )
                         }
-                        val adapter = BerandaAdapter(perusahaan) { peruItem: peru ->
+                        val adapter = BerandaAdapter(perusahaan) { peruItem: PerusahaanBeranda ->
                             partItemClicked(peruItem)
                         }
                         progressBar.visibility = View.GONE
                         view.adapter = adapter
-                    }catch (e: JSONException){
+                    } catch (e: JSONException) {
                         progressBar.visibility = View.GONE
                         e.printStackTrace()
                         refreshButton.visibility = View.VISIBLE
                         refreshButton.setOnClickListener {
-                            getData(view)
+                            getDataJurusan(view)
                             refreshButton.visibility = View.GONE
                         }
                     }
@@ -105,15 +106,14 @@ class BerandaFragment : Fragment() {
                     Log.i("_err", anError.toString())
                     refreshButton.visibility = View.VISIBLE
                     refreshButton.setOnClickListener {
-                        getData(view)
+                        getDataJurusan(view)
                         refreshButton.visibility = View.GONE
                     }
                 }
             })
     }
 
-    private fun getDataBerita(view: RecyclerView){
-        val berita = ArrayList<BeritaModel>()
+    private fun getDataBerita(view: RecyclerView) {
         AndroidNetworking.get("$ip/berita")
             .setPriority(Priority.MEDIUM).build()
             .getAsJSONArray(object :
@@ -123,23 +123,29 @@ class BerandaFragment : Fragment() {
                     try {
                         for (i in 0 until response.length()) {
                             val jsonObject: JSONObject = response.getJSONObject(i)
-                            var isi1 = jsonObject.optString("berita_judul").toString()
-                            var isi2 = jsonObject.optString("berita_link").toString()
-                            var isi3 = jsonObject.optString("berita_gambar").toString()
+                            var berita_judul = jsonObject.optString("berita_judul").toString()
+                            var berita_link = jsonObject.optString("berita_link").toString()
+                            var berita_gambar = jsonObject.optString("berita_gambar").toString()
 
-                            berita.add(BeritaModel("$isi1", "$isi2", "$isi3"))
+                            berita.add(
+                                BeritaModel(
+                                    "$berita_judul",
+                                    "$berita_link",
+                                    "$berita_gambar"
+                                )
+                            )
                         }
                         val adapterB = BeritaAdapter(berita) { beritaItem: BeritaModel ->
                             partItemClicked(beritaItem)
                         }
                         progressBar.visibility = View.GONE
                         view.adapter = adapterB
-                    }catch (e:JSONException){
+                    } catch (e: JSONException) {
                         progressBar.visibility = View.GONE
                         e.printStackTrace()
                         refreshButton.visibility = View.VISIBLE
                         refreshButton.setOnClickListener {
-                            getData(view)
+                            getDataJurusan(view)
                             refreshButton.visibility = View.GONE
                         }
                     }
@@ -150,16 +156,18 @@ class BerandaFragment : Fragment() {
                     Log.i("_err", anError.toString())
                     refreshButton.visibility = View.VISIBLE
                     refreshButton.setOnClickListener {
-                        getData(view)
+                        getDataJurusan(view)
                         refreshButton.visibility = View.GONE
                     }
                 }
             })
     }
 
-    private fun partItemClicked(peruItem: peru) {
+    private fun partItemClicked(perusahaanItem: PerusahaanBeranda) {
         val intent = Intent(activity, PerusahaanDetailActivity::class.java)
-        intent.putExtra("perusahaan_id", peruItem.perusahaan_id)
+        intent.putExtra("perusahaan_id", perusahaanItem.perusahaan_id.toString())
+        intent.putExtra("jurusan_id", 0.toString())
+        intent.putExtra("jurusan_nama", "")
         startActivity(intent)
     }
 

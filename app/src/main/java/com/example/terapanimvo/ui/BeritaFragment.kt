@@ -16,7 +16,6 @@ import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONArrayRequestListener
-import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.example.terapanimvo.R
 import com.example.terapanimvo.helper.BeritaAdapter
 import com.example.terapanimvo.ip
@@ -38,7 +37,7 @@ class BeritaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater!!.inflate(R.layout.berita_fragment, container, false)
+        val view = inflater!!.inflate(R.layout.fragment_berita, container, false)
         val recyclerView = view.findViewById(R.id.recyclerViewBerita) as RecyclerView
 
         progressBar = view.findViewById(R.id.progress_circularBerita)

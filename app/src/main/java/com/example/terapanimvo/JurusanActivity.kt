@@ -109,11 +109,10 @@ class JurusanActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     progressBar.visibility = View.GONE
                     itemList = response.body()!!
-//                    Log.e("OUTPUT", "$itemList")
 
                     adapter = JurusanAdapter(itemList)
-                    {
-                        jurusanItem: JurusanModel -> partItemClicked(jurusanItem)
+                    { jurusanItem: JurusanModel ->
+                        partItemClicked(jurusanItem)
                     }
                     val layoutManager = LinearLayoutManager(this@JurusanActivity)
                     recyclerView.layoutManager = layoutManager

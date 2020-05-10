@@ -30,9 +30,9 @@ class Ulasan(
     val ulasan_created_at: String
 )
 
-class peru(
+class PerusahaanBeranda(
+    val perusahaan_id: Int,
     val perusahaan_nama: String,
     val perusahaan_alamat: String,
-    val perusahaan_logo: String,
-    val perusahaan_id: String
+    val perusahaan_logo: String
 )

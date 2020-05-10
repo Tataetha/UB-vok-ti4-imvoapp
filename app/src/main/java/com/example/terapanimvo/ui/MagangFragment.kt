@@ -10,7 +10,6 @@ import androidx.cardview.widget.CardView
 import com.example.terapanimvo.JurusanActivity
 import com.example.terapanimvo.PerusahaanActivity
 import com.example.terapanimvo.R
-import kotlinx.android.synthetic.main.magang_fragment.*
 
 class MagangFragment : Fragment() {
 
@@ -22,7 +21,7 @@ class MagangFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val root = inflater.inflate(R.layout.magang_fragment, container, false)
+        val root = inflater.inflate(R.layout.fragment_magang, container, false)
         val cardJurusan = root.findViewById(R.id.cardJurusan) as CardView
         val cardPerusahaan = root.findViewById(R.id.cardPerusahaan) as CardView
 

@@ -12,3 +12,6 @@
 /captures
 .externalNativeBuild
 .cxx
+app/src/main/res/layout/fragment_beranda.xml
+app/src/main/res/layout/fragment_beranda.xml
+*.xml

@@ -101,8 +101,8 @@
                             android:id="@+id/rowTelephone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="6dp">
 
                             <ImageView
                                 android:layout_width="20dp"
@@ -126,8 +126,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/rowTelephone"
-                            android:gravity="center_horizontal"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginLeft="6dp">
 
                             <ImageView
                                 android:layout_width="20dp"
@@ -243,7 +244,7 @@
 
                         <RelativeLayout
                             android:id="@+id/relativeLayout"
-                            android:layout_width="130dp"
+                            android:layout_width="140dp"
                             android:layout_height="4dp"
                             android:background="@color/colorAccent"
                             app:layout_constraintEnd_toEndOf="@+id/judulUlasan"

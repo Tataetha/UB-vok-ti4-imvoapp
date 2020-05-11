@@ -36,7 +36,7 @@ class BerandaAdapter(
         return ViewHolder(itemView)
     }
 
-    private val limit = 3
+    private val limit = 5
 
     //fun untuk menghitung keseluruhan data
     override fun getItemCount(): Int {

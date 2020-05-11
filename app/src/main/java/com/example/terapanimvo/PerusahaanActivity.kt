@@ -52,6 +52,20 @@ class PerusahaanActivity : AppCompatActivity() {
         getData()
     }
 
+//    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+//        val search : MenuItem
+//        search = menu!!.findItem(R.id.action_searchPerusahaan)
+//        if (!getData().isFinalised)
+//        {
+//            search.setVisible(false)
+//        }
+//        else
+//        {
+//            search.setVisible(true)
+//        }
+//        return true
+//    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.perusahaan_menu, menu)

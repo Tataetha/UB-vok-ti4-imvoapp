@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ProgressBar
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,10 +17,12 @@ import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONArrayRequestListener
+import com.example.terapanimvo.PerusahaanActivity
 import com.example.terapanimvo.PerusahaanDetailActivity
 import com.example.terapanimvo.R
 import com.example.terapanimvo.helper.BerandaAdapter
 import com.example.terapanimvo.helper.BeritaAdapter
+import com.example.terapanimvo.helper.BeritaAdapter2
 import com.example.terapanimvo.ip
 import com.example.terapanimvo.model.BeritaModel
 import com.example.terapanimvo.model.PerusahaanBeranda
@@ -46,6 +49,8 @@ class BerandaFragment : Fragment() {
         val view = inflater!!.inflate(R.layout.fragment_beranda, container, false)
         val recyclerViewJurusan = view.findViewById(R.id.recyclerViewPerusahaanHome) as RecyclerView
         val recyclerViewBerita = view.findViewById(R.id.recyclerViewBeritaHome) as RecyclerView
+        val btnPerusahaanMore = view.findViewById(R.id.btn_perusahaanMore) as Button
+        val btnBeritaMore = view.findViewById(R.id.btn_beritaMore) as Button
 
         progressBar = view.findViewById(R.id.progress_circularPerusahaanHome)
         refreshButton = view.findViewById(R.id.imageButtonPerusahaanHome)
@@ -58,6 +63,16 @@ class BerandaFragment : Fragment() {
 
         getDataJurusan(recyclerViewJurusan)
         getDataBerita(recyclerViewBerita)
+
+        btnPerusahaanMore.setOnClickListener {
+            val intent = Intent(this@BerandaFragment.context, PerusahaanActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnBeritaMore.setOnClickListener {
+            requireFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, BeritaFragment()).commit()
+        }
+
         return view
     }
 
@@ -135,7 +150,7 @@ class BerandaFragment : Fragment() {
                                 )
                             )
                         }
-                        val adapterB = BeritaAdapter(berita) { beritaItem: BeritaModel ->
+                        val adapterB = BeritaAdapter2(berita) { beritaItem: BeritaModel ->
                             partItemClicked(beritaItem)
                         }
                         progressBar.visibility = View.GONE

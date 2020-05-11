@@ -9,11 +9,13 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="143dp"
+        android:layout_height="wrap_content"
         android:layout_margin="4dp"
         tools:ignore="MissingConstraints"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="2dp">
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp"
+        app:cardMaxElevation="4dp"
+        app:cardUseCompatPadding="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -45,7 +47,7 @@
                         android:id="@+id/textViewJudul"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:text=""
+                        android:text="Judul"
                         android:ellipsize="end"
                         android:maxLines="5"
                         android:textSize="17dp"/>
@@ -53,7 +55,7 @@
                         android:id="@+id/textViewUrl"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text=""
+                        android:text="link"
                         android:layout_marginTop="5dp"
                         android:ellipsize="end"
                         android:maxLines="1"

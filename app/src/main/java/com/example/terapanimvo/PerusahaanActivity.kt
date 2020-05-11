@@ -22,6 +22,7 @@ import retrofit2.Response
 import java.util.*
 import kotlin.collections.ArrayList
 
+@Suppress("DEPRECATION")
 class PerusahaanActivity : AppCompatActivity() {
     lateinit var progressBar: ProgressBar
     lateinit var refreshButton: ImageButton
@@ -52,20 +53,6 @@ class PerusahaanActivity : AppCompatActivity() {
         getData()
     }
 
-//    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
-//        val search : MenuItem
-//        search = menu!!.findItem(R.id.action_searchPerusahaan)
-//        if (!getData().isFinalised)
-//        {
-//            search.setVisible(false)
-//        }
-//        else
-//        {
-//            search.setVisible(true)
-//        }
-//        return true
-//    }
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.perusahaan_menu, menu)
@@ -93,7 +80,7 @@ class PerusahaanActivity : AppCompatActivity() {
     private fun filterList(filterItem: String) {
         var tempList: MutableList<PerusahaanModel> = ArrayList()
         for (d in itemList) {
-            val e = Log.e("INPUT", d.toString())
+            Log.e("INPUT", d.toString())
             if (filterItem.toLowerCase(Locale.ROOT) in d.perusahaan_nama.toLowerCase(Locale.ROOT) ||
                 filterItem.toLowerCase(Locale.ROOT) in d.perusahaan_alamat.toLowerCase(Locale.ROOT)
             ) {

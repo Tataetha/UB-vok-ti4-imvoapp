@@ -22,6 +22,7 @@ import retrofit2.Response
 import java.util.*
 import kotlin.collections.ArrayList
 
+@Suppress("DEPRECATION")
 class JurusanActivity : AppCompatActivity() {
 
     lateinit var progressBar: ProgressBar
@@ -80,7 +81,7 @@ class JurusanActivity : AppCompatActivity() {
     private fun filterList(filterItem: String) {
         var tempList: MutableList<JurusanModel> = ArrayList()
         for (d in itemList) {
-            val e = Log.e("INPUT", d.toString())
+            Log.e("INPUT", d.toString())
             if (filterItem.toLowerCase(Locale.ROOT) in d.jurusan_nama.toLowerCase(Locale.ROOT)) {
                 tempList.add(d)
             }

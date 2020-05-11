@@ -34,8 +34,8 @@ class PerusahaanJurusanAdapter(
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        lateinit var textViewIdJurusan: TextView
-        lateinit var textViewNamaPerusahaan: TextView
+        var textViewIdJurusan: TextView
+        var textViewNamaPerusahaan: TextView
 
         init {
             textViewIdJurusan = itemView.findViewById(R.id.tv_JurusanId) as TextView

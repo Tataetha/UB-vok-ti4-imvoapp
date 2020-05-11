@@ -37,7 +37,7 @@ class BeritaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater!!.inflate(R.layout.fragment_berita, container, false)
+        val view = inflater.inflate(R.layout.fragment_berita, container, false)
         val recyclerView = view.findViewById(R.id.recyclerViewBerita) as RecyclerView
 
         progressBar = view.findViewById(R.id.progress_circularBerita)

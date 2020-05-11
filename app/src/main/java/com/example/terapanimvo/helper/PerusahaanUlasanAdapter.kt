@@ -35,9 +35,9 @@ class PerusahaanUlasanAdapter(
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        lateinit var textViewUlasanID: TextView
-        lateinit var textViewUlasanNama: TextView
-        lateinit var textViewUlasanCreated: TextView
+        var textViewUlasanID: TextView
+        var textViewUlasanNama: TextView
+        var textViewUlasanCreated: TextView
 
         init {
             textViewUlasanID = itemView.findViewById(R.id.tv_ulasanId) as TextView

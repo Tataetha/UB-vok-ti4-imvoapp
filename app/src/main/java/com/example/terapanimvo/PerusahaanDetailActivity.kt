@@ -28,6 +28,10 @@ import kotlinx.android.synthetic.main.activity_perusahaan_detail.*
 import org.json.JSONArray
 import org.json.JSONObject
 
+@Suppress(
+    "RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS",
+    "NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS", "DEPRECATION"
+)
 class PerusahaanDetailActivity : AppCompatActivity() {
 
     lateinit var progressBar: ProgressBar
@@ -175,6 +179,7 @@ class PerusahaanDetailActivity : AppCompatActivity() {
             partItemClicked(jurusanItem)
         }
 
+//                    progressBar.visibility = View.GONE
         recyclerViewJurusan.adapter = adapterJurusan
     }
 
@@ -211,6 +216,7 @@ class PerusahaanDetailActivity : AppCompatActivity() {
             partItemClicked(ulasanItem)
         }
 
+//                    progressBar.visibility = View.GONE
         recyclerViewUlasan.adapter = adapterUlasan
     }
 

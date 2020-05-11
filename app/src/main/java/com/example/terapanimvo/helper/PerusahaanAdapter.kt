@@ -38,13 +38,17 @@ class PerusahaanAdapter(
         holder.PerusahaanAlamat.text = itemData.perusahaan_alamat
         holder.PerusahaanId.text = itemData.perusahaan_id.toString()
 
+        if (holder.PerusahaanNama.lineCount != 1)
+            holder.PerusahaanAlamat.maxLines = 2
+        else
+            holder.PerusahaanAlamat.maxLines = 3
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        lateinit var PerusahaanLogo: ImageView
-        lateinit var PerusahaanNama: TextView
-        lateinit var PerusahaanAlamat: TextView
-        lateinit var PerusahaanId: TextView
+        var PerusahaanLogo: ImageView
+        var PerusahaanNama: TextView
+        var PerusahaanAlamat: TextView
+        var PerusahaanId: TextView
 
         init {
             PerusahaanLogo = itemView.findViewById(R.id.imageViewPerusahaanLogo)

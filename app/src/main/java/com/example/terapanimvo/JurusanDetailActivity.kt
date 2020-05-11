@@ -22,6 +22,9 @@ import org.json.JSONObject
 import kotlin.collections.ArrayList
 
 
+@Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS",
+    "NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS", "DEPRECATION"
+)
 class JurusanDetailActivity : AppCompatActivity() {
 
     lateinit var progressBar: ProgressBar
@@ -70,7 +73,7 @@ class JurusanDetailActivity : AppCompatActivity() {
             .getAsJSONObject(object : JSONObjectRequestListener {
                 override fun onResponse(response: JSONObject) {
                     Log.e("kotlinResponse", response.toString())
-                    val jsonArray: JSONArray = response!!.getJSONArray("perusahaan")
+                    val jsonArray: JSONArray = response.getJSONArray("perusahaan")
                     for (i in 0 until jsonArray.length()) {
                         val jsonObject: JSONObject = jsonArray.getJSONObject(i)
                         var perusahaan_id = jsonObject.optString("perusahaan_id").toInt()

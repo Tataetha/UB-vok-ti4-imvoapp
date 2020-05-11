@@ -2,15 +2,16 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingVertical="4dp">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="4dp"
+        app:cardCornerRadius="4dp"
         app:cardElevation="4dp"
-        app:cardMaxElevation="4dp">
+        app:cardMaxElevation="4dp"
+        app:cardUseCompatPadding="true">
 
         <LinearLayout
             android:id="@+id/cardListPerusahaan"
@@ -34,17 +35,19 @@
                     android:id="@+id/textViewPerusahaanNama"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLines="2"
                     android:text="Semua Perusahaan"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="@color/colorText" />
+                    android:textColor="@color/colorText"
+                    android:textSize="22sp" />
 
                 <TextView
                     android:id="@+id/textViewPerusahaanAlamat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLines="3"
                     android:text="Pilih tempat magang berdasarkan perusahaan terbaru"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="@color/colorText" />
+                    android:textColor="@color/colorText"
+                    android:textSize="13sp" />
 
                 <TextView
                     android:id="@+id/textViewPerusahaanId"

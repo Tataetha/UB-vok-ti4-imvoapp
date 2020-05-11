@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingVertical="2dp">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        app:cardElevation="4dp"
-        app:cardMaxElevation="4dp"
+        android:layout_height="wrap_content"
+        app:cardElevation="2dp"
+        app:cardMaxElevation="2dp"
+        app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -47,7 +47,7 @@
                 android:maxLength="10"
                 android:maxLines="1"
                 android:text="text"
-                android:textSize="10dp" />
+                android:textSize="11sp" />
 
             <TextView
                 android:id="@+id/tv_ulasanId"

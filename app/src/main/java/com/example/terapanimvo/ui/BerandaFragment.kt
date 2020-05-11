@@ -20,9 +20,8 @@ import com.androidnetworking.interfaces.JSONArrayRequestListener
 import com.example.terapanimvo.PerusahaanActivity
 import com.example.terapanimvo.PerusahaanDetailActivity
 import com.example.terapanimvo.R
-import com.example.terapanimvo.helper.BerandaAdapter
-import com.example.terapanimvo.helper.BeritaAdapter
-import com.example.terapanimvo.helper.BeritaAdapter2
+import com.example.terapanimvo.helper.BerandaPerusahaanAdapter
+import com.example.terapanimvo.helper.BerandaBeritaAdapter
 import com.example.terapanimvo.ip
 import com.example.terapanimvo.model.BeritaModel
 import com.example.terapanimvo.model.PerusahaanBeranda
@@ -30,6 +29,7 @@ import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
+@Suppress("DEPRECATION")
 class BerandaFragment : Fragment() {
 
     lateinit var progressBar: ProgressBar
@@ -46,7 +46,7 @@ class BerandaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater!!.inflate(R.layout.fragment_beranda, container, false)
+        val view = inflater.inflate(R.layout.fragment_beranda, container, false)
         val recyclerViewJurusan = view.findViewById(R.id.recyclerViewPerusahaanHome) as RecyclerView
         val recyclerViewBerita = view.findViewById(R.id.recyclerViewBeritaHome) as RecyclerView
         val btnPerusahaanMore = view.findViewById(R.id.btn_perusahaanMore) as Button
@@ -70,7 +70,8 @@ class BerandaFragment : Fragment() {
         }
 
         btnBeritaMore.setOnClickListener {
-            requireFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, BeritaFragment()).commit()
+            requireFragmentManager().beginTransaction()
+                .replace(R.id.nav_host_fragment, BeritaFragment()).commit()
         }
 
         return view
@@ -88,7 +89,8 @@ class BerandaFragment : Fragment() {
                             val jsonObject: JSONObject = response.getJSONObject(i)
                             var perusahaan_id = jsonObject.optString("perusahaan_id").toInt()
                             var perusahaan_nama = jsonObject.optString("perusahaan_nama").toString()
-                            var perusahaan_alamat = jsonObject.optString("perusahaan_alamat").toString()
+                            var perusahaan_alamat =
+                                jsonObject.optString("perusahaan_alamat").toString()
                             var perusahaan_logo = jsonObject.optString("perusahaan_logo").toString()
 
                             perusahaan.add(
@@ -100,7 +102,7 @@ class BerandaFragment : Fragment() {
                                 )
                             )
                         }
-                        val adapter = BerandaAdapter(perusahaan) { peruItem: PerusahaanBeranda ->
+                        val adapter = BerandaPerusahaanAdapter(perusahaan) { peruItem: PerusahaanBeranda ->
                             partItemClicked(peruItem)
                         }
                         progressBar.visibility = View.GONE
@@ -150,7 +152,7 @@ class BerandaFragment : Fragment() {
                                 )
                             )
                         }
-                        val adapterB = BeritaAdapter2(berita) { beritaItem: BeritaModel ->
+                        val adapterB = BerandaBeritaAdapter(berita) { beritaItem: BeritaModel ->
                             partItemClicked(beritaItem)
                         }
                         progressBar.visibility = View.GONE

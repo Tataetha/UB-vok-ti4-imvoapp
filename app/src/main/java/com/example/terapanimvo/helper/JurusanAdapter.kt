@@ -44,8 +44,8 @@ class JurusanAdapter(
 
     //insialisasi untuk list yang akan dibuat menggunakan RecylerView
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        lateinit var textViewId: TextView
-        lateinit var textViewName: TextView
+        var textViewId: TextView
+        var textViewName: TextView
 
         init {
             textViewId = itemView.findViewById(R.id.textViewJurusanId) as TextView

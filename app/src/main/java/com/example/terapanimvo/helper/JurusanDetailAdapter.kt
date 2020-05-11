@@ -47,10 +47,10 @@ class JurusanDetailAdapter(
 
     //insialisasi untuk list yang akan dibuat menggunakan RecylerView
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        lateinit var imageViewLogo: ImageView
-        lateinit var textViewId: TextView
-        lateinit var textViewNama: TextView
-        lateinit var textViewAlamat: TextView
+        var imageViewLogo: ImageView
+        var textViewId: TextView
+        var textViewNama: TextView
+        var textViewAlamat: TextView
 
         init {
             imageViewLogo = itemView.findViewById(R.id.imageViewPerusahaanLogo)

@@ -175,7 +175,6 @@ class PerusahaanDetailActivity : AppCompatActivity() {
             partItemClicked(jurusanItem)
         }
 
-//                    progressBar.visibility = View.GONE
         recyclerViewJurusan.adapter = adapterJurusan
     }
 
@@ -212,7 +211,6 @@ class PerusahaanDetailActivity : AppCompatActivity() {
             partItemClicked(ulasanItem)
         }
 
-//                    progressBar.visibility = View.GONE
         recyclerViewUlasan.adapter = adapterUlasan
     }
 

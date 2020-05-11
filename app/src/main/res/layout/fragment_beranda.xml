@@ -3,81 +3,159 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.BerandaFragment">
+    android:layout_height="wrap_content"
+    tools:context=".ui.BerandaFragment"
+    android:id="@+id/haha">
 
     <ScrollView
-        android:id="@+id/beranda"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:padding="4dp">
 
-            <TextView
-                android:id="@+id/tvPer"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_berandaPerusahaan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:fontFamily="monospace"
-                android:text="Perusahaan"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                app:cardElevation="4dp"
+                app:cardMaxElevation="4dp">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewPerusahaanHome"
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:id="@+id/row_judulPerusahaan">
+
+                        <TextView
+                            android:id="@+id/tvPer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:fontFamily="monospace"
+                            android:layout_marginTop="10dp"
+                            android:text="Perusahaan"
+                            android:textSize="22dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorText" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Telusuri daftar perusahaan magang"
+                            android:layout_marginLeft="10dp"
+                            android:layout_below="@id/tvPer"
+                            android:textSize="13sp" />
+                        <Button
+                            android:id="@+id/btn_perusahaanMore"
+                            android:layout_alignParentEnd="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Selengkapnya"
+                            android:textSize="12sp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginTop="15dp"
+                            tools:ignore="SmallSp"
+                            android:minHeight="40dp"/>
+                    </RelativeLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewPerusahaanHome"
+                        android:layout_width="match_parent"
+                        android:layout_height="310dp"
+                        android:layout_below="@id/row_judulPerusahaan"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="4dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_berandaBerita"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvPer"
-                android:layout_marginStart="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="1dp"
-                android:layout_marginRight="1dp"
-                android:layout_marginBottom="1dp"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="4dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:cardElevation="4dp"
+                app:cardMaxElevation="4dp"
+                android:layout_below="@id/card_berandaPerusahaan">
 
-            <TextView
-                android:id="@+id/tvBer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/recyclerViewPerusahaanHome"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="monospace"
-                android:text="Berita"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewBeritaHome"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvBer"
-                android:layout_marginStart="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="1dp"
-                android:layout_marginRight="1dp"
-                android:layout_marginBottom="1dp"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="4dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:id="@+id/row_judulBerita">
+
+                        <TextView
+                            android:id="@+id/tvBer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="monospace"
+                            android:text="Berita"
+                            android:textSize="22dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorText" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Update dengan berita terkini"
+                            android:layout_marginLeft="10dp"
+                            android:layout_below="@id/tvBer"
+                            android:textSize="13sp" />
+                        <Button
+                            android:id="@+id/btn_beritaMore"
+                            android:layout_alignParentEnd="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Selengkapnya"
+                            android:textSize="12sp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginTop="14dp"
+                            tools:ignore="SmallSp"
+                            android:minHeight="40dp"/>
+                    </RelativeLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewBeritaHome"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/row_judulBerita"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="4dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
         </RelativeLayout>
     </ScrollView>
-
     <ProgressBar
         android:id="@+id/progress_circularPerusahaanHome"
         android:layout_width="wrap_content"

@@ -2,10 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/haha"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".ui.BerandaFragment"
-    android:id="@+id/haha">
+    tools:context=".ui.BerandaFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,146 +16,137 @@
             android:layout_height="wrap_content"
             android:padding="4dp">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_berandaPerusahaan"
-                android:layout_width="match_parent"
+            <RelativeLayout
+                android:id="@+id/rowPerusahaan"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardElevation="4dp"
-                app:cardMaxElevation="4dp">
+                android:orientation="vertical">
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
+                    android:id="@+id/row_judulPerusahaan"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/tvPer"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:id="@+id/row_judulPerusahaan">
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="monospace"
+                        android:text="Perusahaan"
+                        android:textColor="@color/colorText"
+                        android:textSize="22dp"
+                        android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/tvPer"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:fontFamily="monospace"
-                            android:layout_marginTop="10dp"
-                            android:text="Perusahaan"
-                            android:textSize="22dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/colorText" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Telusuri daftar perusahaan magang"
-                            android:layout_marginLeft="10dp"
-                            android:layout_below="@id/tvPer"
-                            android:textSize="13sp" />
-                        <Button
-                            android:id="@+id/btn_perusahaanMore"
-                            android:layout_alignParentEnd="true"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Selengkapnya"
-                            android:textSize="12sp"
-                            android:layout_marginEnd="8dp"
-                            android:layout_marginTop="15dp"
-                            tools:ignore="SmallSp"
-                            android:minHeight="40dp"/>
-                    </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvPer"
+                        android:layout_marginLeft="10dp"
+                        android:text="Telusuri daftar perusahaan magang"
+                        android:textSize="13sp" />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerViewPerusahaanHome"
-                        android:layout_width="match_parent"
-                        android:layout_height="310dp"
-                        android:layout_below="@id/row_judulPerusahaan"
-                        android:layout_marginStart="1dp"
-                        android:layout_marginLeft="1dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="1dp"
-                        android:layout_marginRight="1dp"
-                        android:layout_marginBottom="1dp"
-                        android:paddingHorizontal="8dp"
-                        android:paddingVertical="4dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    <Button
+                        android:id="@+id/btn_perusahaanMore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="8dp"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:minHeight="40dp"
+                        android:text="Selengkapnya"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12sp"
+                        tools:ignore="SmallSp" />
                 </RelativeLayout>
-            </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_berandaBerita"
-                android:layout_width="match_parent"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewPerusahaanHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="310dp"
+                    android:layout_below="@id/row_judulPerusahaan"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rowBerita"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardElevation="4dp"
-                app:cardMaxElevation="4dp"
-                android:layout_below="@id/card_berandaPerusahaan">
+                android:layout_below="@id/rowPerusahaan"
+                android:orientation="vertical">
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
+                    android:id="@+id/row_judulBerita"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/tvBer"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:id="@+id/row_judulBerita">
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="monospace"
+                        android:text="Berita"
+                        android:textColor="@color/colorText"
+                        android:textSize="22dp"
+                        android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/tvBer"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="10dp"
-                            android:fontFamily="monospace"
-                            android:text="Berita"
-                            android:textSize="22dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/colorText" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Update dengan berita terkini"
-                            android:layout_marginLeft="10dp"
-                            android:layout_below="@id/tvBer"
-                            android:textSize="13sp" />
-                        <Button
-                            android:id="@+id/btn_beritaMore"
-                            android:layout_alignParentEnd="true"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Selengkapnya"
-                            android:textSize="12sp"
-                            android:layout_marginEnd="8dp"
-                            android:layout_marginTop="14dp"
-                            tools:ignore="SmallSp"
-                            android:minHeight="40dp"/>
-                    </RelativeLayout>
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerViewBeritaHome"
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/row_judulBerita"
-                        android:layout_marginStart="1dp"
-                        android:layout_marginLeft="1dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="1dp"
-                        android:layout_marginRight="1dp"
-                        android:layout_marginBottom="1dp"
-                        android:paddingHorizontal="8dp"
-                        android:paddingVertical="4dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:layout_below="@id/tvBer"
+                        android:layout_marginLeft="10dp"
+                        android:text="Update dengan berita terkini"
+                        android:textSize="13sp" />
+
+                    <Button
+                        android:id="@+id/btn_beritaMore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginEnd="8dp"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:minHeight="40dp"
+                        android:text="Selengkapnya"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12sp"
+                        tools:ignore="SmallSp" />
                 </RelativeLayout>
-            </androidx.cardview.widget.CardView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewBeritaHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/row_judulBerita"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </RelativeLayout>
         </RelativeLayout>
     </ScrollView>
+
     <ProgressBar
         android:id="@+id/progress_circularPerusahaanHome"
         android:layout_width="wrap_content"

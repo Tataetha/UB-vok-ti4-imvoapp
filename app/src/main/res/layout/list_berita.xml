@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingVertical="4dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="143dp"
+        android:layout_height="wrap_content"
         android:layout_margin="4dp"
-        tools:ignore="MissingConstraints"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="2dp">
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp"
+        app:cardMaxElevation="4dp"
+        app:cardUseCompatPadding="true"
+        tools:ignore="MissingConstraints">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="139dp"
             android:background="@color/colorPrimaryDark">
 
             <RelativeLayout
                 android:id="@+id/container_cardBerita"
                 android:layout_width="match_parent"
-                android:scaleType="centerCrop"
-                android:layout_height="139dp"
-                android:background="#ffffff">
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:scaleType="centerCrop">
 
                 <ImageView
                     android:id="@+id/imageViewBerita"
@@ -34,31 +35,35 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/bg_gradient" />
 
-                <LinearLayout
-                    android:layout_toRightOf="@id/imageViewBerita"
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/imageViewBerita"
                     android:orientation="vertical"
                     android:padding="8dp">
 
                     <TextView
                         android:id="@+id/textViewJudul"
                         android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        android:text=""
+                        android:layout_height="wrap_content"
                         android:ellipsize="end"
-                        android:maxLines="5"
-                        android:textSize="17dp"/>
+                        android:lines="4"
+                        android:maxLines="4"
+                        android:text="Judul\nJudul\nJudul\nJudul\nJudul\nJudul"
+                        android:textSize="17dp" />
+
                     <TextView
                         android:id="@+id/textViewUrl"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text=""
-                        android:layout_marginTop="5dp"
+                        android:layout_below="@id/textViewJudul"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="6dp"
                         android:ellipsize="end"
                         android:maxLines="1"
+                        android:text="link"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
-                </LinearLayout>
+                </RelativeLayout>
             </RelativeLayout>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

@@ -15,6 +15,7 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener
 import kotlinx.android.synthetic.main.activity_perusahaan_detail_ulasan.*
 import org.json.JSONObject
 
+@Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS", "DEPRECATION")
 class PerusahaanDetailUlasanActivity : AppCompatActivity() {
     lateinit var progressBar: ProgressBar
     lateinit var refreshButton: ImageButton

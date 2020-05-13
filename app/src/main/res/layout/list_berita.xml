@@ -61,6 +61,7 @@
                         android:layout_marginTop="6dp"
                         android:ellipsize="end"
                         android:maxLines="1"
+                        android:paddingTop="11dp"
                         android:text="link"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
                 </RelativeLayout>

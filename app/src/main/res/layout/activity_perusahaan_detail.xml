@@ -224,13 +224,16 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/container_perusahaan">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <LinearLayout
                         android:id="@+id/constrain_judulUlasan"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_margin="8dp">
+                        android:layout_margin="8dp"
+                        android:orientation="vertical"
+                        android:gravity="left">
 
                         <TextView
+                            android:layout_gravity="center_horizontal"
                             android:id="@+id/judulUlasan"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -244,15 +247,16 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <RelativeLayout
+                            android:layout_gravity="center_horizontal"
                             android:id="@+id/relativeLayout"
-                            android:layout_width="130dp"
+                            android:layout_width="140dp"
                             android:layout_height="4dp"
                             android:background="@color/colorAccent"
                             app:layout_constraintEnd_toEndOf="@+id/judulUlasan"
                             app:layout_constraintHorizontal_bias="0.615"
                             app:layout_constraintStart_toStartOf="@+id/judulUlasan"
                             app:layout_constraintTop_toBottomOf="@+id/judulUlasan" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_Ulasan"
